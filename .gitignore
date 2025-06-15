@@ -24,11 +24,11 @@ backblue.gif
 fade.gif
 
 # Other files
-*.md
+README.md
 security_vulnerabilities.md
-*.css
-*.js
 server.js
-*.jpeg
-*.jpg
-*.png
+
+# Allow assets images
+!assets/**/*.jpg
+!assets/**/*.png
+!assets/**/*.jpeg
