@@ -238,6 +238,15 @@
 			flex-grow: 1;
 		}
 
+		.navbar-nav {
+			align-items: center;
+		}
+
+		.navbar-nav .nav-item {
+			display: flex;
+			align-items: center;
+		}
+
 		/* Industrial Hero Section */
 		.hero-section {
 			height: 100vh;
@@ -1002,6 +1011,117 @@
 			letter-spacing: 2px;
 			margin-bottom: 0.8rem;
 			text-align: center;
+		}
+
+		/* Seamless Hours Section */
+		.seamless-hours-section {
+			background: linear-gradient(180deg, var(--charcoal) 0%, var(--deep-black) 100%);
+			padding: 0;
+			margin: 0;
+			border-top: 3px solid var(--fire-orange);
+			position: relative;
+		}
+
+		.seamless-hours-section::before {
+			content: '';
+			position: absolute;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			background: 
+				radial-gradient(circle at 30% 50%, rgba(255, 107, 53, 0.1) 0%, transparent 60%),
+				radial-gradient(circle at 70% 50%, rgba(176, 124, 78, 0.08) 0%, transparent 60%);
+		}
+
+		.hours-strip {
+			padding: 3rem 0;
+			position: relative;
+			z-index: 2;
+		}
+
+		.hours-content {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			gap: 2rem;
+		}
+
+		.hours-title {
+			font-family: 'Bebas Neue', sans-serif;
+			font-size: 3rem;
+			color: var(--fire-orange);
+			letter-spacing: 6px;
+			margin: 0;
+			text-shadow: 0 0 20px rgba(255, 107, 53, 0.5);
+		}
+
+		.hours-display {
+			display: flex;
+			gap: 4rem;
+			align-items: center;
+		}
+
+		.hours-item {
+			display: flex;
+			align-items: center;
+			gap: 1.5rem;
+			background: rgba(26, 26, 26, 0.8);
+			border: 2px solid var(--copper);
+			padding: 1.5rem 2.5rem;
+			border-radius: 8px;
+			backdrop-filter: blur(10px);
+			transition: all 0.3s ease;
+		}
+
+		.hours-item:hover {
+			border-color: var(--fire-orange);
+			box-shadow: 0 0 25px rgba(255, 107, 53, 0.4);
+			transform: translateY(-3px);
+		}
+
+		.hours-days {
+			font-family: 'Oswald', sans-serif;
+			font-size: 1.4rem;
+			color: var(--smoke-white);
+			font-weight: 600;
+			letter-spacing: 2px;
+		}
+
+		.hours-separator {
+			color: var(--fire-orange);
+			font-size: 1.8rem;
+			font-weight: bold;
+		}
+
+		.hours-time {
+			font-family: 'Oswald', sans-serif;
+			font-size: 1.4rem;
+			color: var(--copper);
+			font-weight: 400;
+			letter-spacing: 1px;
+		}
+
+		/* Responsive Hours Section */
+		@media (max-width: 768px) {
+			.hours-display {
+				flex-direction: column;
+				gap: 1.5rem;
+			}
+			
+			.hours-item {
+				padding: 1rem 1.5rem;
+				gap: 1rem;
+			}
+			
+			.hours-title {
+				font-size: 2.5rem;
+				letter-spacing: 4px;
+			}
+			
+			.hours-strip {
+				padding: 2rem 0;
+			}
 		}
 
 		.info-header {
@@ -2089,17 +2209,6 @@
 	    </a>
 	  </div>
 	  
-	  <!-- Hours in Hero Right Side -->
-	  <div class="hero-info">
-	    <div class="info-block">
-	      <h3 class="hours-header">OPEN HOURS</h3>
-	      <div class="hours-list">
-	        <div class="hours-day">MON - SAT: 11AM - 9:30PM</div>
-	        <div class="hours-day">SUNDAY: 11AM - 8PM</div>
-	      </div>
-	    </div>
-	  </div>
-	  
 	</section>
 
 	<!-- Reviews Section -->
@@ -2725,6 +2834,34 @@
 		    <i class="bi bi-telephone-fill me-2"></i>(615) 797-1042
 		  </a>
 		</div>
+	      </div>
+	    </div>
+	  </div>
+	</section>
+
+	<!-- Hours Section -->
+	<section id="hours" class="seamless-hours-section">
+	  <div class="container">
+	    <div class="hours-strip">
+	      <div class="hours-content">
+	        <h3 class="hours-title">OPEN HOURS</h3>
+	        <div class="hours-display">
+	          <div class="hours-item">
+	            <span class="hours-days">TUE - SAT</span>
+	            <span class="hours-separator">|</span>
+	            <span class="hours-time">11AM - 9:30PM</span>
+	          </div>
+	          <div class="hours-item">
+	            <span class="hours-days">SUNDAY</span>
+	            <span class="hours-separator">|</span>
+	            <span class="hours-time">11AM - 8PM</span>
+	          </div>
+	          <div class="hours-item">
+	            <span class="hours-days">MONDAY</span>
+	            <span class="hours-separator">|</span>
+	            <span class="hours-time">CLOSED</span>
+	          </div>
+	        </div>
 	      </div>
 	    </div>
 	  </div>
