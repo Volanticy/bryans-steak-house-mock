@@ -1,0 +1,34 @@
+# Dependencies
+node_modules/
+package-lock.json
+
+# Downloaded website files (keeping original structure)
+bryanssteakhouse.com/
+d154n9s37ks317.cloudfront.net/
+d231ztcmroo6jm.cloudfront.net/
+d2gqo3h0psesgi.cloudfront.net/
+d2pcvm0oig0mh8.cloudfront.net/
+d2w2x2jec0ggdm.cloudfront.net/
+d803lamfzaqnm.cloudfront.net/
+maxcdn.bootstrapcdn.com/
+nsftr.picoventures.net/
+www.google-analytics.com/
+
+# HTTrack files
+hts-cache/
+hts-log.txt
+*.gif
+*.txt
+cookies.txt
+backblue.gif
+fade.gif
+
+# Other files
+*.md
+security_vulnerabilities.md
+*.css
+*.js
+server.js
+*.jpeg
+*.jpg
+*.png

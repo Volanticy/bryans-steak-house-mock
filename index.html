@@ -1,0 +1,2935 @@
+<!doctype html>
+<html lang="en">
+  
+<head>
+    <title>Bryan's Steak House</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Order online directly from the restaurant Bryan's Steak House, browse the Bryan's Steak House menu, or view Bryan's Steak House hours.">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" rel="stylesheet">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald:wght@200;300;400;500;600;700&family=Roboto+Condensed:wght@300;400;700&display=swap" rel="stylesheet">
+
+	<style>
+		:root {
+			/* Dark Luxury Steakhouse Theme */
+			--charcoal: #1a1a1a;
+			--deep-black: #0d0d0d;
+			--fire-orange: #ff6b35;
+			--copper: #b07c4e;
+			--gold: #ffd700;
+			--smoke-white: #f5f5f5;
+			--ash-gray: #808080;
+			--ember-red: #dc143c;
+			--steel-blue: #4682b4;
+			--gradient-fire: linear-gradient(45deg, #ff6b35, #ff8c42, #ffa552);
+			--gradient-smoke: linear-gradient(135deg, #1a1a1a, #2d2d2d, #1a1a1a);
+			--gradient-copper: linear-gradient(45deg, #b07c4e, #d4a574, #b07c4e);
+			--glow-fire: 0 0 30px rgba(255, 107, 53, 0.5);
+			--glow-copper: 0 0 25px rgba(176, 124, 78, 0.4);
+			--shadow-deep: 0 15px 50px rgba(0, 0, 0, 0.8);
+			--shadow-intense: 0 25px 80px rgba(0, 0, 0, 0.6);
+		}
+
+		* {
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+		}
+
+		body {
+			font-family: 'Oswald', 'Impact', sans-serif;
+			font-size: 18px;
+			line-height: 1.4;
+			color: var(--smoke-white);
+			background: var(--deep-black);
+			overflow-x: hidden;
+			scroll-behavior: smooth;
+			letter-spacing: 0.5px;
+		}
+
+		h1, h2, h3, h4, h5, h6 {
+			font-family: 'Bebas Neue', 'Impact', sans-serif;
+			font-weight: 400;
+			line-height: 1.1;
+			letter-spacing: 2px;
+			text-transform: uppercase;
+		}
+
+		/* Industrial Navigation */
+		.navbar {
+			background: rgba(13, 13, 13, 0.95) !important;
+			backdrop-filter: blur(20px);
+			border-bottom: 3px solid var(--fire-orange);
+			box-shadow: var(--shadow-deep);
+			padding: 1rem 0;
+			transition: all 0.3s ease;
+			position: relative;
+			z-index: 1000;
+		}
+
+		.navbar .container-fluid {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			width: 100%;
+			padding-left: 1rem !important;
+			padding-right: 1rem !important;
+		}
+		
+		/* Mobile container adjustments */
+		@media (max-width: 992px) {
+			.navbar .container-fluid {
+				padding-left: 0.5rem !important;
+				padding-right: 0.5rem !important;
+				overflow: visible !important;
+			}
+		}
+
+		.navbar.scrolled {
+			padding: 0.5rem 0;
+			background: rgba(13, 13, 13, 0.98) !important;
+			border-bottom: 2px solid var(--fire-orange);
+			box-shadow: var(--shadow-intense);
+		}
+
+
+		.nav-link {
+			font-weight: 500;
+			color: var(--smoke-white) !important;
+			transition: all 0.2s ease;
+			position: relative;
+			margin: 0 0.25rem;
+			padding: 1rem 1.5rem !important;
+			border: 2px solid transparent;
+			text-transform: uppercase;
+			letter-spacing: 1px;
+			font-size: 1.1rem;
+		}
+
+		.nav-link:before {
+			content: '';
+			position: absolute;
+			top: 0;
+			left: -100%;
+			width: 100%;
+			height: 100%;
+			background: var(--gradient-secondary);
+			transition: left 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+			z-index: -1;
+			opacity: 0.1;
+		}
+
+		.nav-link:hover {
+			color: var(--fire-orange) !important;
+			border-color: var(--fire-orange);
+			box-shadow: var(--glow-fire);
+			transform: scale(1.05);
+		}
+
+		.nav-link::before {
+			content: '';
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			width: 100%;
+			height: 3px;
+			background: var(--gradient-fire);
+			transform: scaleX(0);
+			transition: transform 0.3s ease;
+			transform-origin: left;
+		}
+
+		.nav-link:hover::before {
+			transform: scaleX(1);
+		}
+
+		/* Location Link White Box Styling */
+		.location-link {
+			background: rgba(255, 255, 255, 0.95) !important;
+			color: var(--charcoal) !important;
+			border: 2px solid var(--smoke-white) !important;
+			border-radius: 8px !important;
+			padding: 0.75rem 1.5rem !important;
+			margin-left: 0 !important;
+			font-weight: 600 !important;
+			text-transform: uppercase !important;
+			letter-spacing: 1px !important;
+			backdrop-filter: blur(10px) !important;
+			box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2) !important;
+			transition: all 0.3s ease !important;
+			text-decoration: none !important;
+		}
+
+		.location-link:hover {
+			background: var(--smoke-white) !important;
+			color: var(--fire-orange) !important;
+			border-color: var(--fire-orange) !important;
+			box-shadow: var(--glow-fire) !important;
+			transform: scale(1.05) !important;
+		}
+
+		.location-link::before {
+			display: none !important;
+		}
+
+		/* Mobile location link styling */
+		.location-link-mobile {
+			background: rgba(255, 255, 255, 0.95) !important;
+			color: var(--charcoal) !important;
+			border: 2px solid var(--smoke-white) !important;
+			border-radius: 8px !important;
+			padding: 0.75rem 1.5rem !important;
+			margin: 0.5rem 0 !important;
+			font-weight: 600 !important;
+			text-transform: uppercase !important;
+			letter-spacing: 1px !important;
+			backdrop-filter: blur(10px) !important;
+			box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2) !important;
+			transition: all 0.3s ease !important;
+			text-decoration: none !important;
+			display: block !important;
+			text-align: center !important;
+		}
+
+		.location-link-mobile:hover {
+			background: var(--smoke-white) !important;
+			color: var(--fire-orange) !important;
+			border-color: var(--fire-orange) !important;
+			box-shadow: var(--glow-fire) !important;
+			transform: scale(1.05) !important;
+		}
+
+		.location-link-mobile::before {
+			display: none !important;
+		}
+
+		/* Navbar left alignment */
+		.navbar-left {
+			flex-grow: 0;
+			display: flex;
+			align-items: center;
+			margin-right: auto;
+			position: absolute;
+			left: 1rem;
+			top: 50%;
+			transform: translateY(-50%);
+		}
+
+
+		.navbar-toggler {
+			order: 1;
+			margin-left: auto;
+		}
+
+		/* Force navbar layout */
+		.navbar .container-fluid {
+			flex-wrap: nowrap;
+			position: relative;
+		}
+
+		.navbar-collapse {
+			flex-grow: 1;
+		}
+
+		/* Industrial Hero Section */
+		.hero-section {
+			height: 100vh;
+			min-height: 800px;
+			background: 
+				linear-gradient(45deg, rgba(13, 13, 13, 0.7), rgba(26, 26, 26, 0.8)),
+				url('assets/images/hero-banner.jpg');
+			background-size: cover;
+			background-position: center;
+			background-attachment: fixed;
+			display: grid;
+			grid-template-columns: 1fr 1fr;
+			align-items: center;
+			position: relative;
+			overflow: hidden;
+			border-bottom: 5px solid var(--fire-orange);
+		}
+
+		.hero-section::before {
+			content: '';
+			position: absolute;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			background: 
+				radial-gradient(circle at 20% 80%, rgba(255, 107, 53, 0.3) 0%, transparent 60%),
+				radial-gradient(circle at 80% 20%, rgba(176, 124, 78, 0.2) 0%, transparent 60%);
+			animation: fireGlow 6s ease-in-out infinite alternate;
+		}
+
+		@keyframes fireGlow {
+			0% { opacity: 0.4; filter: hue-rotate(0deg); }
+			100% { opacity: 0.8; filter: hue-rotate(15deg); }
+		}
+
+		@keyframes shimmer {
+			0% { opacity: 0.3; transform: translateX(-10px); }
+			100% { opacity: 0.7; transform: translateX(10px); }
+		}
+
+		.hero-content {
+			grid-column: 1;
+			padding: 4rem 3rem 4rem 5rem;
+			position: relative;
+			z-index: 2;
+		}
+
+		.hero-info {
+			grid-column: 2;
+			padding: 4rem 5rem 4rem 3rem;
+			position: relative;
+			z-index: 2;
+		}
+
+		/* Staggered Hero Animations */
+		.hero-logo {
+			animation: slideInLeft 1s ease 0.2s both;
+		}
+
+		.hero-title {
+			animation: slideInLeft 1s ease 0.4s both;
+		}
+
+		.hero-tagline {
+			animation: slideInLeft 1s ease 0.6s both;
+		}
+
+		.hero-cta {
+			animation: slideInLeft 1s ease 0.8s both;
+		}
+
+		.hero-info {
+			animation: slideInRight 1s ease 1.0s both;
+		}
+
+		/* Google Reviews Carousel */
+		.reviews-carousel {
+			background: rgba(26, 26, 26, 0.8);
+			border: 2px solid var(--copper);
+			padding: 1.5rem;
+			margin-bottom: 2rem;
+			clip-path: polygon(10px 0%, 100% 0%, calc(100% - 10px) 100%, 0% 100%);
+			transition: all 0.2s ease;
+			backdrop-filter: blur(10px);
+			position: relative;
+			overflow: hidden;
+			min-height: 140px;
+		}
+
+		.reviews-carousel:hover {
+			border-color: var(--fire-orange);
+			box-shadow: var(--glow-fire);
+			transform: scale(1.02);
+		}
+
+		.review-container {
+			position: relative;
+			height: 100px;
+		}
+
+		.review-item {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			opacity: 0;
+			transform: translateX(50px);
+			transition: all 0.6s ease;
+			text-align: center;
+		}
+
+		.review-item.active {
+			opacity: 1;
+			transform: translateX(0);
+		}
+
+		.review-stars {
+			color: var(--gold);
+			font-size: 1.2rem;
+			margin-bottom: 0.5rem;
+			letter-spacing: 2px;
+		}
+
+		.review-text {
+			font-family: 'Roboto Condensed', sans-serif;
+			color: var(--smoke-white);
+			font-size: 0.9rem;
+			line-height: 1.4;
+			margin-bottom: 0.5rem;
+			font-style: italic;
+		}
+
+		.review-author {
+			font-family: 'Oswald', sans-serif;
+			color: var(--copper);
+			font-size: 0.8rem;
+			font-weight: 500;
+			text-transform: uppercase;
+			letter-spacing: 1px;
+		}
+
+		.google-badge {
+			position: absolute;
+			bottom: 0.5rem;
+			right: 1rem;
+			display: flex;
+			align-items: center;
+			gap: 0.5rem;
+			font-size: 0.7rem;
+			color: var(--ash-gray);
+			font-family: 'Roboto Condensed', sans-serif;
+		}
+
+		.google-badge i {
+			font-size: 1rem;
+			color: #4285f4;
+		}
+
+		/* Hours List Styling */
+		.hours-list {
+			margin-bottom: 2rem;
+			text-align: center;
+		}
+
+		.hours-header {
+			font-family: 'Bebas Neue', sans-serif;
+			font-size: 3rem;
+			color: var(--fire-orange);
+			letter-spacing: 5px;
+			margin-bottom: 2rem;
+			text-transform: uppercase;
+			text-shadow: 
+				0 0 15px rgba(255, 107, 53, 0.6),
+				2px 2px 0 var(--charcoal),
+				4px 4px 0 var(--deep-black);
+		}
+
+		.hours-day {
+			font-family: 'Bebas Neue', sans-serif;
+			color: var(--smoke-white);
+			font-size: 1.8rem;
+			margin-bottom: 0.8rem;
+			font-weight: 400;
+			letter-spacing: 2px;
+			text-transform: uppercase;
+			text-shadow: 1px 1px 0 var(--charcoal);
+		}
+
+		.hours-day:last-child {
+			color: var(--copper);
+			font-weight: 400;
+			text-shadow: 1px 1px 0 var(--charcoal), 0 0 10px rgba(176, 124, 78, 0.5);
+		}
+
+		/* Reviews Section Styling */
+		.reviews-section {
+			padding: 6rem 0;
+			background: var(--gradient-smoke);
+			border-top: 3px solid var(--copper);
+			border-bottom: 3px solid var(--copper);
+			position: relative;
+			overflow: hidden;
+		}
+
+		.reviews-section::before {
+			content: '';
+			position: absolute;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			background: linear-gradient(135deg, 
+				transparent 0%, 
+				rgba(255, 107, 53, 0.05) 50%, 
+				transparent 100%);
+			pointer-events: none;
+		}
+
+		.reviews-section .section-title {
+			text-align: center;
+			margin-bottom: 3rem;
+			color: var(--fire-orange);
+			text-shadow: 
+				0 0 20px rgba(255, 107, 53, 0.6),
+				2px 2px 0 var(--charcoal);
+		}
+
+		/* Staggered Animations */
+		.hours-list {
+			animation: slideInRight 1s ease 1.2s both;
+		}
+
+		.reviews-carousel {
+			animation: slideInUp 1s ease 0.8s both;
+		}
+
+		/* Hours Section Styling */
+		.hours-section {
+			padding: 5rem 0;
+			background: var(--charcoal);
+			border-top: 3px solid var(--fire-orange);
+			border-bottom: 3px solid var(--fire-orange);
+			position: relative;
+		}
+
+		.hours-section::before {
+			content: '';
+			position: absolute;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			background: linear-gradient(45deg, 
+				transparent 0%, 
+				rgba(176, 124, 78, 0.08) 50%, 
+				transparent 100%);
+			pointer-events: none;
+		}
+
+		.hours-section .section-title {
+			text-align: center;
+			margin-bottom: 3rem;
+			color: var(--copper);
+			text-shadow: 
+				0 0 20px rgba(176, 124, 78, 0.6),
+				2px 2px 0 var(--charcoal);
+		}
+
+		.hours-container {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+
+		.hours-section .hours-list {
+			text-align: center;
+			padding: 2rem;
+			background: rgba(26, 26, 26, 0.8);
+			border: 2px solid var(--copper);
+			border-radius: 12px;
+			backdrop-filter: blur(10px);
+			box-shadow: var(--shadow-deep);
+		}
+
+		.hours-section .hours-day {
+			font-family: 'Bebas Neue', sans-serif;
+			color: var(--smoke-white);
+			font-size: 1.8rem;
+			margin-bottom: 0.8rem;
+			font-weight: 400;
+			letter-spacing: 2px;
+			text-transform: uppercase;
+			text-shadow: 1px 1px 0 var(--charcoal);
+			transition: all 0.3s ease;
+		}
+
+		.hours-section .hours-day:hover {
+			color: var(--fire-orange);
+			transform: scale(1.05);
+		}
+
+		.hours-section .hours-day:last-child {
+			color: var(--copper);
+			font-weight: 400;
+			text-shadow: 1px 1px 0 var(--charcoal), 0 0 10px rgba(176, 124, 78, 0.5);
+			margin-bottom: 0;
+		}
+
+		.hours-section .hours-list {
+			animation: slideInUp 1s ease 1s both;
+		}
+
+		/* Industrial Menu Section */
+		.menu-section {
+			padding: 6rem 0;
+			background: var(--charcoal);
+			border-top: 5px solid var(--fire-orange);
+			border-bottom: 5px solid var(--fire-orange);
+			position: relative;
+			overflow: hidden;
+		}
+
+		.menu-section::before {
+			content: '';
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			background: 
+				repeating-linear-gradient(
+					90deg,
+					transparent,
+					transparent 98px,
+					rgba(255, 107, 53, 0.03) 100px
+				);
+			animation: industrialPattern 20s linear infinite;
+		}
+
+		.menu-title {
+			font-size: 4.5rem;
+			color: var(--fire-orange);
+			margin-bottom: 2rem;
+			position: relative;
+			text-align: center;
+			font-family: 'Bebas Neue', sans-serif;
+			letter-spacing: 5px;
+			text-shadow: 
+				0 0 10px rgba(255, 107, 53, 0.5),
+				3px 3px 0 var(--charcoal),
+				6px 6px 0 var(--deep-black);
+		}
+
+		.menu-divider {
+			width: 200px;
+			height: 8px;
+			background: var(--gradient-copper);
+			margin: 3rem auto;
+			position: relative;
+			box-shadow: var(--glow-copper);
+			clip-path: polygon(20px 0%, calc(100% - 20px) 0%, 100% 100%, 0% 100%);
+		}
+
+		/* Menu Tabs */
+		.menu-tabs {
+			display: flex;
+			justify-content: center;
+			flex-wrap: wrap;
+			gap: 1rem;
+			margin-bottom: 3rem;
+			position: relative;
+			z-index: 2;
+		}
+
+		.menu-tab {
+			background: var(--gradient-smoke);
+			border: 3px solid var(--ash-gray);
+			color: var(--smoke-white);
+			padding: 1rem 2rem;
+			font-family: 'Bebas Neue', sans-serif;
+			font-size: 1rem;
+			font-weight: 400;
+			text-transform: uppercase;
+			letter-spacing: 2px;
+			transition: all 0.3s ease;
+			cursor: pointer;
+			clip-path: polygon(10px 0%, 100% 0%, calc(100% - 10px) 100%, 0% 100%);
+			position: relative;
+			overflow: hidden;
+		}
+
+		.menu-tab::before {
+			content: '';
+			position: absolute;
+			top: 0;
+			left: -100%;
+			width: 100%;
+			height: 100%;
+			background: var(--gradient-fire);
+			transition: left 0.3s ease;
+			z-index: -1;
+		}
+
+		.menu-tab:hover,
+		.menu-tab.active {
+			border-color: var(--fire-orange);
+			color: var(--charcoal);
+			background: var(--gradient-fire);
+			box-shadow: var(--glow-fire);
+			transform: scale(1.05);
+		}
+
+		.menu-tab:hover::before,
+		.menu-tab.active::before {
+			left: 0;
+		}
+
+		/* Menu Content */
+		.menu-content {
+			position: relative;
+			z-index: 2;
+		}
+
+		.menu-category {
+			display: none;
+		}
+
+		.menu-category.active {
+			display: block;
+		}
+
+		.section-note {
+			text-align: center;
+			font-family: 'Roboto Condensed', sans-serif;
+			color: var(--copper);
+			font-size: 1.1rem;
+			margin-bottom: 2rem;
+			font-style: italic;
+			letter-spacing: 1px;
+		}
+
+		/* Menu Grid */
+		.menu-grid {
+			display: grid;
+			grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+			gap: 2rem;
+			margin-bottom: 2rem;
+		}
+
+		.kids-grid {
+			grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+		}
+
+		.sides-grid,
+		.drinks-grid {
+			grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+		}
+
+		/* Menu Item Cards */
+		.menu-item-card {
+			background: var(--gradient-smoke);
+			border: 3px solid var(--copper);
+			padding: 2rem;
+			transition: all 0.3s ease;
+			position: relative;
+			overflow: hidden;
+			clip-path: polygon(15px 0%, 100% 0%, calc(100% - 15px) 100%, 0% 100%);
+			box-shadow: var(--shadow-deep);
+		}
+
+		.menu-item-card.compact {
+			padding: 1.5rem;
+		}
+
+		.menu-item-card.featured {
+			border-color: var(--fire-orange);
+			background: var(--gradient-fire);
+		}
+
+		.menu-item-card.featured .item-header h3,
+		.menu-item-card.featured .price {
+			color: var(--charcoal);
+		}
+
+		.menu-item-card.featured p {
+			color: var(--deep-black);
+		}
+
+		.menu-item-card::before {
+			content: '';
+			position: absolute;
+			top: 0;
+			left: -100%;
+			width: 100%;
+			height: 100%;
+			background: linear-gradient(45deg, rgba(255, 107, 53, 0.1), rgba(176, 124, 78, 0.1));
+			transition: left 0.4s ease;
+			z-index: 1;
+		}
+
+		.menu-item-card:hover {
+			border-color: var(--fire-orange);
+			box-shadow: var(--glow-fire);
+			transform: scale(1.02);
+		}
+
+		.menu-item-card:hover::before {
+			left: 0;
+		}
+
+		.item-header {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			margin-bottom: 1rem;
+			position: relative;
+			z-index: 2;
+		}
+
+		.item-header h3 {
+			font-family: 'Bebas Neue', sans-serif;
+			font-size: 1.4rem;
+			font-weight: 400;
+			color: var(--fire-orange);
+			margin: 0;
+			letter-spacing: 2px;
+			text-transform: uppercase;
+		}
+
+		.price {
+			font-family: 'Roboto Condensed', sans-serif;
+			font-size: 1.3rem;
+			font-weight: 700;
+			color: var(--smoke-white);
+			background: var(--gradient-copper);
+			padding: 0.5rem 1rem;
+			clip-path: polygon(8px 0%, 100% 0%, calc(100% - 8px) 100%, 0% 100%);
+			color: var(--deep-black);
+		}
+
+		.menu-item-card p {
+			font-family: 'Roboto Condensed', sans-serif;
+			font-size: 0.95rem;
+			color: var(--ash-gray);
+			line-height: 1.5;
+			margin: 0;
+			position: relative;
+			z-index: 2;
+			font-weight: 300;
+		}
+
+		/* Responsive Menu Design */
+		@media (max-width: 768px) {
+			.menu-title {
+				font-size: 3rem;
+			}
+
+			.menu-tabs {
+				gap: 0.5rem;
+			}
+
+			.menu-tab {
+				padding: 0.75rem 1.5rem;
+				font-size: 0.9rem;
+			}
+
+			.menu-grid {
+				grid-template-columns: 1fr;
+				gap: 1.5rem;
+			}
+
+			.menu-item-card {
+				padding: 1.5rem;
+			}
+		}
+
+		@media (max-width: 576px) {
+			.menu-section {
+				padding: 4rem 0;
+			}
+
+			.menu-title {
+				font-size: 2.5rem;
+			}
+
+			.menu-tab {
+				padding: 0.5rem 1rem;
+				font-size: 0.8rem;
+			}
+
+			.item-header {
+				flex-direction: column;
+				align-items: flex-start;
+				gap: 0.5rem;
+			}
+
+			.price {
+				align-self: flex-end;
+			}
+		}
+
+
+		@keyframes slideInLeft {
+			from { opacity: 0; transform: translateX(-100px); }
+			to { opacity: 1; transform: translateX(0); }
+		}
+
+		@keyframes slideInRight {
+			from { opacity: 0; transform: translateX(100px); }
+			to { opacity: 1; transform: translateX(0); }
+		}
+
+		@keyframes heroFadeIn {
+			from {
+				opacity: 0;
+				transform: translateY(60px) scale(0.95);
+			}
+			to {
+				opacity: 1;
+				transform: translateY(0) scale(1);
+			}
+		}
+
+		.hero-logo {
+			max-width: 200px;
+			width: 100%;
+			margin-bottom: 3rem;
+			filter: 
+				drop-shadow(0 0 20px rgba(255, 107, 53, 0.7))
+				contrast(1.2)
+				brightness(1.1);
+			transition: all 0.3s ease;
+			animation: logoFlicker 4s ease-in-out infinite;
+		}
+
+		@keyframes logoFlicker {
+			0%, 100% { 
+				filter: drop-shadow(0 0 20px rgba(255, 107, 53, 0.7)) contrast(1.2) brightness(1.1);
+			}
+			50% { 
+				filter: drop-shadow(0 0 30px rgba(255, 107, 53, 0.9)) contrast(1.3) brightness(1.2);
+			}
+		}
+
+		@keyframes logoFloat {
+			0%, 100% { transform: translateY(0) rotate(0deg); }
+			50% { transform: translateY(-10px) rotate(1deg); }
+		}
+
+		.hero-logo:hover {
+			transform: scale(1.1);
+			filter: 
+				drop-shadow(0 0 40px rgba(255, 107, 53, 1))
+				contrast(1.4)
+				brightness(1.3);
+		}
+
+		/* New Hero Typography */
+		.hero-title {
+			font-size: 4.5rem;
+			color: var(--smoke-white);
+			font-family: 'Bebas Neue', sans-serif;
+			letter-spacing: 8px;
+			line-height: 0.9;
+			margin: 2rem 0;
+			text-shadow: 
+				4px 4px 0 var(--charcoal),
+				8px 8px 0 var(--deep-black);
+		}
+
+		.fire-text {
+			color: var(--fire-orange);
+			text-shadow: 
+				0 0 20px rgba(255, 107, 53, 0.8),
+				4px 4px 0 var(--charcoal),
+				8px 8px 0 var(--deep-black);
+			animation: fireText 2s ease-in-out infinite alternate;
+		}
+
+		@keyframes fireText {
+			0% { text-shadow: 0 0 20px rgba(255, 107, 53, 0.8), 4px 4px 0 var(--charcoal), 8px 8px 0 var(--deep-black); }
+			100% { text-shadow: 0 0 30px rgba(255, 107, 53, 1), 4px 4px 0 var(--charcoal), 8px 8px 0 var(--deep-black); }
+		}
+
+		.hero-tagline {
+			font-family: 'Roboto Condensed', sans-serif;
+			font-size: 1.2rem;
+			letter-spacing: 4px;
+			color: var(--copper);
+			margin: 2rem 0;
+			font-weight: 700;
+		}
+
+		.separator-dot {
+			color: var(--smoke-white);
+			font-size: 0.8rem;
+			vertical-align: middle;
+			display: inline-block;
+			line-height: 1.2;
+			margin: 0 0.5rem;
+			position: relative;
+			top: -0.1em;
+		}
+
+		.hero-cta {
+			display: inline-flex;
+			align-items: center;
+			gap: 1rem;
+			margin-top: 3rem;
+		}
+
+		.cta-text {
+			font-size: 1.4rem;
+		}
+
+		.cta-arrow {
+			font-size: 1.2rem;
+			transition: transform 0.2s ease;
+		}
+
+		.hero-cta:hover .cta-arrow {
+			transform: translateX(5px);
+		}
+
+		/* Hero Info Panel */
+		.hero-info {
+			display: flex;
+			flex-direction: column;
+			gap: 2rem;
+		}
+
+		.info-block {
+			background: rgba(26, 26, 26, 0.8);
+			border: 2px solid var(--copper);
+			padding: 1.5rem;
+			clip-path: polygon(10px 0%, 100% 0%, calc(100% - 10px) 100%, 0% 100%);
+			transition: all 0.2s ease;
+			backdrop-filter: blur(10px);
+		}
+
+		.info-block:hover {
+			border-color: var(--fire-orange);
+			box-shadow: var(--glow-fire);
+			transform: scale(1.02);
+		}
+
+		.info-header {
+			font-family: 'Bebas Neue', sans-serif;
+			font-size: 1.1rem;
+			color: var(--fire-orange);
+			letter-spacing: 2px;
+			margin-bottom: 0.5rem;
+		}
+
+		.info-content {
+			font-family: 'Roboto Condensed', sans-serif;
+			color: var(--smoke-white);
+			font-weight: 300;
+		}
+
+		.address-line, .hours-line {
+			margin-bottom: 0.25rem;
+			font-size: 0.95rem;
+		}
+
+		.phone-number {
+			color: var(--smoke-white);
+			text-decoration: none;
+			display: flex;
+			align-items: center;
+			gap: 0.5rem;
+			transition: all 0.2s ease;
+		}
+
+		.phone-number:hover {
+			color: var(--fire-orange);
+			transform: scale(1.05);
+		}
+
+		.phone-icon {
+			font-size: 1.2rem;
+		}
+
+		.social-grid {
+			display: grid;
+			grid-template-columns: repeat(2, 1fr);
+			gap: 1rem;
+			margin-top: 1rem;
+		}
+
+		.social-item {
+			background: var(--charcoal);
+			border: 2px solid var(--ash-gray);
+			padding: 1rem;
+			text-align: center;
+			font-size: 1.5rem;
+			transition: all 0.2s ease;
+			cursor: pointer;
+			clip-path: polygon(8px 0%, 100% 0%, calc(100% - 8px) 100%, 0% 100%);
+		}
+
+		.social-item:hover {
+			border-color: var(--fire-orange);
+			box-shadow: var(--glow-fire);
+			transform: scale(1.1);
+		}
+
+		.hero-title {
+			font-size: 3.5rem;
+			font-weight: 700;
+			margin-bottom: 1rem;
+			text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+		}
+
+		.hero-subtitle {
+			font-size: 1.25rem;
+			margin-bottom: 2rem;
+			opacity: 0.9;
+		}
+
+		.btn-primary {
+			background: var(--gradient-fire);
+			border: 3px solid var(--fire-orange);
+			padding: 1.5rem 3.5rem;
+			font-size: 1.3rem;
+			font-weight: 700;
+			border-radius: 50px;
+			transition: all 0.2s ease;
+			box-shadow: var(--shadow-deep);
+			text-transform: uppercase;
+			letter-spacing: 3px;
+			position: relative;
+			color: var(--charcoal);
+			font-family: 'Bebas Neue', sans-serif;
+		}
+
+
+		.btn-primary:hover {
+			background: var(--charcoal);
+			color: var(--fire-orange);
+			border-color: var(--copper);
+			box-shadow: var(--glow-fire);
+			transform: scale(1.05);
+		}
+
+		.btn-primary:active {
+			transform: scale(0.95);
+		}
+
+		.btn-outline-primary {
+			border: 2px solid var(--primary-color);
+			color: var(--primary-color);
+			background: transparent;
+			padding: 0.75rem 2rem;
+			font-weight: 600;
+			border-radius: 50px;
+			transition: all 0.3s ease;
+		}
+
+		.btn-outline-primary:hover {
+			background: var(--primary-color);
+			color: white;
+			transform: translateY(-2px);
+			box-shadow: 0 4px 15px rgba(139, 38, 53, 0.3);
+		}
+
+		.btn-outline-light {
+			border: 2px solid var(--text-light);
+			color: var(--text-light);
+			background: transparent;
+			padding: 0.75rem 2rem;
+			font-weight: 600;
+			border-radius: 50px;
+			transition: all 0.3s ease;
+		}
+
+		.btn-outline-light:hover {
+			background: var(--text-light);
+			color: var(--accent-color);
+			transform: translateY(-2px);
+		}
+
+		.contact-info {
+			margin-top: 2rem;
+			font-size: 1.1rem;
+		}
+
+		.contact-info a {
+			color: var(--secondary-color);
+			text-decoration: none;
+			font-weight: 600;
+			transition: color 0.3s ease;
+		}
+
+		.contact-info a:hover {
+			color: #fff;
+			text-shadow: 0 0 10px var(--secondary-color);
+		}
+
+		/* Social Icons */
+		.social-icons {
+			margin-top: 2rem;
+		}
+
+		.social-icons .bi {
+			font-size: 1.5rem;
+			margin: 0 0.5rem;
+			color: var(--text-light);
+			transition: all 0.3s ease;
+			cursor: pointer;
+		}
+
+		.social-icons .bi:hover {
+			color: var(--secondary-color);
+			transform: scale(1.2);
+		}
+
+		/* Industrial About Section */
+		.welcome-section {
+			padding: 8rem 0;
+			background: var(--gradient-smoke);
+			position: relative;
+			overflow: hidden;
+			border-top: 10px solid var(--copper);
+			border-bottom: 10px solid var(--copper);
+		}
+
+		.welcome-section::before {
+			content: '';
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			background: 
+				repeating-linear-gradient(
+					90deg,
+					transparent,
+					transparent 98px,
+					rgba(255, 107, 53, 0.03) 100px
+				);
+			animation: industrialPattern 20s linear infinite;
+		}
+
+		@keyframes industrialPattern {
+			0% { transform: translateX(0); }
+			100% { transform: translateX(100px); }
+		}
+
+		.section-title {
+			font-size: 4.5rem;
+			color: var(--fire-orange);
+			margin-bottom: 2rem;
+			position: relative;
+			transition: all 0.3s ease;
+			text-shadow: 
+				0 0 10px rgba(255, 107, 53, 0.5),
+				3px 3px 0 var(--charcoal),
+				6px 6px 0 var(--deep-black);
+			font-family: 'Bebas Neue', sans-serif;
+			letter-spacing: 5px;
+		}
+
+		.section-title:hover {
+			transform: scale(1.05);
+			text-shadow: 
+				0 0 20px rgba(255, 107, 53, 0.8),
+				3px 3px 0 var(--charcoal),
+				6px 6px 0 var(--deep-black);
+		}
+
+		.section-divider {
+			width: 200px;
+			height: 8px;
+			background: var(--gradient-copper);
+			margin: 3rem auto;
+			position: relative;
+			box-shadow: var(--glow-copper);
+			clip-path: polygon(20px 0%, calc(100% - 20px) 0%, 100% 100%, 0% 100%);
+		}
+
+		.section-divider::before {
+			content: '';
+			position: absolute;
+			top: 0;
+			left: -100%;
+			width: 100%;
+			height: 100%;
+			background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.8), transparent);
+			animation: dividerShine 3s ease-in-out infinite;
+		}
+
+		@keyframes dividerShine {
+			0% { left: -100%; }
+			100% { left: 100%; }
+		}
+
+		.welcome-text {
+			font-size: 1.4rem;
+			color: var(--ash-gray);
+			max-width: 800px;
+			margin: 0 auto;
+			line-height: 1.6;
+			font-family: 'Roboto Condensed', sans-serif;
+			font-weight: 300;
+			letter-spacing: 1px;
+			text-align: center;
+		}
+
+		/* Industrial Food Gallery */
+		.food-gallery {
+			padding: 5rem 0;
+			position: relative;
+			background: var(--charcoal);
+			border-top: 5px solid var(--fire-orange);
+			border-bottom: 5px solid var(--fire-orange);
+		}
+
+		.food-item {
+			position: relative;
+			overflow: hidden;
+			margin: 1rem;
+			box-shadow: var(--shadow-deep);
+			transition: all 0.3s ease;
+			cursor: pointer;
+			border: 3px solid var(--copper);
+			clip-path: polygon(20px 0%, 100% 0%, calc(100% - 20px) 100%, 0% 100%);
+			background: var(--deep-black);
+		}
+
+		.food-item::before {
+			content: '';
+			position: absolute;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			background: linear-gradient(45deg, transparent, rgba(212, 175, 55, 0.1));
+			opacity: 0;
+			transition: opacity 0.4s ease;
+			z-index: 1;
+			border-radius: 20px;
+		}
+
+		.food-item:hover {
+			transform: scale(1.05);
+			border-color: var(--fire-orange);
+			box-shadow: var(--glow-fire);
+		}
+
+		.food-item img {
+			width: 100%;
+			height: 300px;
+			object-fit: cover;
+			transition: all 0.3s ease;
+			filter: contrast(1.2) brightness(0.9);
+			position: relative;
+			z-index: 0;
+		}
+
+		.food-item:hover img {
+			transform: scale(1.1);
+			filter: contrast(1.4) brightness(1.1) saturate(1.2);
+		}
+
+		.food-item::after {
+			content: '';
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			right: 0;
+			height: 100px;
+			background: linear-gradient(transparent, rgba(0, 0, 0, 0.7));
+			opacity: 0;
+			transition: opacity 0.4s ease;
+			z-index: 2;
+			border-radius: 0 0 20px 20px;
+		}
+
+		.food-item:hover::after {
+			opacity: 1;
+		}
+
+		/* Location Section */
+		.location-section {
+			padding: 6rem 0;
+			background: var(--charcoal);
+			border-top: 5px solid var(--fire-orange);
+			border-bottom: 5px solid var(--fire-orange);
+			position: relative;
+			overflow: hidden;
+		}
+
+		.location-section::before {
+			content: '';
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			background: 
+				repeating-linear-gradient(
+					90deg,
+					transparent,
+					transparent 98px,
+					rgba(255, 107, 53, 0.03) 100px
+				);
+			animation: industrialPattern 20s linear infinite;
+		}
+
+		.location-card {
+			background: var(--gradient-smoke);
+			border: 4px solid var(--copper);
+			padding: 3rem 2rem;
+			text-align: center;
+			box-shadow: var(--shadow-deep);
+			transition: all 0.3s ease;
+			position: relative;
+			overflow: hidden;
+			z-index: 2;
+			clip-path: polygon(20px 0%, 100% 0%, calc(100% - 20px) 100%, 0% 100%);
+		}
+
+		.location-card::before {
+			content: '';
+			position: absolute;
+			top: 0;
+			left: -100%;
+			width: 100%;
+			height: 100%;
+			background: linear-gradient(45deg, rgba(255, 107, 53, 0.1), rgba(176, 124, 78, 0.1));
+			transition: left 0.4s ease;
+			z-index: 1;
+		}
+
+		.location-card:hover {
+			border-color: var(--fire-orange);
+			box-shadow: var(--glow-fire);
+			transform: scale(1.02);
+		}
+
+		.location-card:hover::before {
+			left: 0;
+		}
+
+		.location-icon {
+			font-size: 3rem;
+			color: var(--fire-orange);
+			margin-bottom: 1.5rem;
+			transition: all 0.4s ease;
+			display: inline-block;
+			position: relative;
+			z-index: 2;
+			text-shadow: 0 0 10px rgba(255, 107, 53, 0.5);
+		}
+
+		.location-card:hover .location-icon {
+			transform: scale(1.2) rotate(10deg);
+			color: var(--copper);
+			text-shadow: 0 0 20px rgba(176, 124, 78, 0.8);
+		}
+
+		.location-card h4 {
+			color: var(--fire-orange) !important;
+			font-family: var(--font-display) !important;
+			font-size: 1.8rem !important;
+			font-weight: 400 !important;
+			letter-spacing: 2px !important;
+			text-transform: uppercase !important;
+			position: relative;
+			z-index: 2;
+		}
+
+		.location-card p {
+			color: var(--smoke-white) !important;
+			font-family: var(--font-body) !important;
+			font-size: 1.1rem !important;
+			position: relative;
+			z-index: 2;
+		}
+
+		.location-card strong {
+			color: var(--copper) !important;
+		}
+
+		.location-card .btn-outline-primary {
+			border: 3px solid var(--fire-orange) !important;
+			color: var(--fire-orange) !important;
+			background: transparent !important;
+			padding: 1rem 2rem !important;
+			font-family: var(--font-display) !important;
+			font-weight: 400 !important;
+			text-transform: uppercase !important;
+			letter-spacing: 2px !important;
+			transition: all 0.3s ease !important;
+			position: relative !important;
+			z-index: 2 !important;
+			clip-path: polygon(8px 0%, 100% 0%, calc(100% - 8px) 100%, 0% 100%) !important;
+		}
+
+		.location-card .btn-outline-primary:hover {
+			background: var(--fire-orange) !important;
+			color: var(--charcoal) !important;
+			border-color: var(--copper) !important;
+			box-shadow: var(--glow-fire) !important;
+			transform: scale(1.05) !important;
+		}
+
+		/* Footer */
+		.footer {
+			background: linear-gradient(135deg, var(--accent-color) 0%, #1a0f08 100%);
+			color: var(--text-light);
+			padding: 4rem 0 2rem;
+			position: relative;
+			overflow: hidden;
+		}
+
+		.footer::before {
+			content: '';
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			background: radial-gradient(circle at 70% 30%, rgba(212, 175, 55, 0.1) 0%, transparent 60%);
+		}
+
+		.footer h5 {
+			color: var(--secondary-color);
+			margin-bottom: 1.5rem;
+			font-weight: 700;
+			position: relative;
+			transition: all 0.3s ease;
+			font-size: 1.2rem;
+		}
+
+		.footer h5:hover {
+			transform: translateX(5px);
+			text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+		}
+
+		.footer a {
+			color: var(--text-light);
+			text-decoration: none;
+			transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+			position: relative;
+			display: inline-block;
+		}
+
+		.footer a::after {
+			content: '';
+			position: absolute;
+			bottom: -2px;
+			left: 0;
+			width: 0;
+			height: 2px;
+			background: var(--secondary-color);
+			transition: width 0.3s ease;
+		}
+
+		.footer a:hover {
+			color: var(--secondary-color);
+			transform: translateX(3px);
+		}
+
+		.footer a:hover::after {
+			width: 100%;
+		}
+
+		.footer .social-icons .bi {
+			width: 45px;
+			height: 45px;
+			border-radius: 50%;
+			display: inline-flex;
+			align-items: center;
+			justify-content: center;
+			background: rgba(255, 255, 255, 0.1);
+			margin: 0 0.5rem;
+			transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+			backdrop-filter: blur(10px);
+		}
+
+		.footer .social-icons .bi:hover {
+			background: var(--secondary-color);
+			color: var(--accent-color);
+			transform: translateY(-5px) scale(1.1);
+			box-shadow: 0 8px 25px rgba(212, 175, 55, 0.4);
+		}
+
+		.copyright {
+			border-top: 1px solid rgba(212, 175, 55, 0.3);
+			padding-top: 1rem;
+			margin-top: 2rem;
+			text-align: center;
+			color: var(--secondary-color);
+			font-size: 0.9rem;
+		}
+
+		/* Advanced Animations & Effects */
+		@keyframes fadeInUp {
+			from {
+				opacity: 0;
+				transform: translateY(50px);
+			}
+			to {
+				opacity: 1;
+				transform: translateY(0);
+			}
+		}
+
+		@keyframes slideInFromLeft {
+			from {
+				opacity: 0;
+				transform: translateX(-100px);
+			}
+			to {
+				opacity: 1;
+				transform: translateX(0);
+			}
+		}
+
+		@keyframes slideInFromRight {
+			from {
+				opacity: 0;
+				transform: translateX(100px);
+			}
+			to {
+				opacity: 1;
+				transform: translateX(0);
+			}
+		}
+
+		@keyframes scaleIn {
+			from {
+				opacity: 0;
+				transform: scale(0.8);
+			}
+			to {
+				opacity: 1;
+				transform: scale(1);
+			}
+		}
+
+		/* Scroll Animations */
+		.scroll-animate {
+			opacity: 0;
+			transform: translateY(30px);
+			transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+		}
+
+		.scroll-animate.in-view {
+			opacity: 1;
+			transform: translateY(0);
+		}
+
+		/* Improved Contact Info */
+		.contact-info {
+			margin-top: 2.5rem;
+			font-size: 1.2rem;
+			animation: slideInFromLeft 1s ease 1.0s both;
+		}
+
+		.contact-info a {
+			color: var(--secondary-color);
+			text-decoration: none;
+			font-weight: 700;
+			transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+			position: relative;
+			display: inline-block;
+		}
+
+		.contact-info a::before {
+			content: '';
+			position: absolute;
+			top: -5px;
+			left: -5px;
+			right: -5px;
+			bottom: -5px;
+			background: rgba(212, 175, 55, 0.2);
+			border-radius: 10px;
+			opacity: 0;
+			transition: opacity 0.3s ease;
+		}
+
+		.contact-info a:hover {
+			color: #fff;
+			text-shadow: 0 0 15px var(--secondary-color);
+			transform: scale(1.05);
+		}
+
+		.contact-info a:hover::before {
+			opacity: 1;
+		}
+
+		/* Hero Social Icons */
+		.hero-content .social-icons {
+			margin-top: 3rem;
+			animation: slideInFromRight 1s ease 1.2s both;
+		}
+
+		.hero-content .social-icons .bi {
+			font-size: 1.8rem;
+			margin: 0 0.75rem;
+			color: var(--text-light);
+			transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+			cursor: pointer;
+			width: 50px;
+			height: 50px;
+			display: inline-flex;
+			align-items: center;
+			justify-content: center;
+			border-radius: 50%;
+			background: rgba(255, 255, 255, 0.1);
+			backdrop-filter: blur(10px);
+		}
+
+		.hero-content .social-icons .bi:hover {
+			color: var(--accent-color);
+			background: var(--secondary-color);
+			transform: translateY(-8px) scale(1.2) rotate(10deg);
+			box-shadow: 0 10px 30px rgba(212, 175, 55, 0.5);
+		}
+
+		/* Enhanced Responsive Design */
+		@media (max-width: 1200px) {
+			.hero-content {
+				padding: 2rem;
+			}
+			.section-title {
+				font-size: 2.5rem;
+			}
+		}
+
+		@media (max-width: 992px) {
+			.hero-section {
+				min-height: 600px;
+				background-attachment: scroll;
+				grid-template-columns: 1fr;
+				text-align: center;
+				padding: 2rem 1rem;
+			}
+			
+			.hero-content {
+				padding: 2rem 1rem;
+			}
+			
+			.hero-info {
+				padding: 2rem 1rem;
+				margin-top: 2rem;
+			}
+			
+			.navbar {
+				padding: 1.5rem 0;
+			}
+			
+			.navbar-left {
+				position: static !important;
+				transform: none !important;
+				width: 100% !important;
+				display: none !important; /* Hide desktop location on mobile */
+			}
+			
+			/* Mobile horizontal navigation - always visible */
+			.navbar-toggler {
+				display: none !important; /* Hide hamburger menu */
+			}
+			
+			.navbar-collapse {
+				display: flex !important; /* Always show navigation */
+				visibility: visible !important;
+				background: transparent !important;
+				backdrop-filter: none !important;
+				border-radius: 0 !important;
+				margin-top: 0 !important;
+				padding: 0 !important;
+				border: none !important;
+			}
+			
+			.navbar-nav {
+				flex-direction: row !important; /* Horizontal layout */
+				gap: 0.2rem;
+				flex-wrap: nowrap;
+				justify-content: space-evenly;
+				overflow: visible;
+				width: 100%;
+			}
+			
+			.nav-link {
+				font-size: 0.85rem !important;
+				padding: 0.4rem 0.5rem !important;
+				margin: 0 !important;
+				text-align: center !important;
+				border-radius: 4px !important;
+				white-space: nowrap;
+				flex: 1;
+				max-width: fit-content;
+			}
+			
+			.location-link-mobile {
+				font-size: 1rem !important;
+				padding: 0.6rem 0.8rem !important;
+				margin: 0 !important;
+				white-space: nowrap;
+				flex: none;
+				order: -1;
+			}
+			
+			.food-item img {
+				height: 250px;
+			}
+		}
+
+		@media (max-width: 768px) {
+			.hero-title {
+				font-size: 2.5rem;
+			}
+
+			.hero-logo {
+				max-width: 250px;
+			}
+
+			.section-title {
+				font-size: 2rem;
+			}
+
+			.food-item {
+				margin: 0.5rem;
+			}
+
+			.btn-primary {
+				padding: 1rem 2rem;
+				font-size: 1rem;
+			}
+
+			.hero-content {
+				padding: 1.5rem;
+			}
+
+			.welcome-section, .location-section {
+				padding: 4rem 0;
+			}
+
+			.location-card {
+				padding: 2rem 1.5rem;
+			}
+			
+			.hero-tagline {
+				font-size: 1rem;
+				letter-spacing: 2px;
+			}
+			
+			.separator-dot {
+				font-size: 0.6rem;
+				margin: 0 0.3rem;
+				position: relative;
+				top: -2px;
+				line-height: 1.2;
+			}
+			
+			/* Mobile navigation links */
+			.nav-link {
+				font-size: 0.8rem !important;
+				padding: 0.4rem 0.6rem !important;
+				letter-spacing: 0.5px !important;
+			}
+			
+			.location-link-mobile {
+				font-size: 0.9rem !important;
+				padding: 0.5rem 0.7rem !important;
+				order: -1;
+			}
+		}
+
+		@media (max-width: 576px) {
+			.hero-title {
+				font-size: 2rem;
+			}
+
+			.hero-logo {
+				max-width: 200px;
+			}
+
+			.section-title {
+				font-size: 1.75rem;
+			}
+
+			.btn-primary {
+				padding: 0.875rem 1.5rem;
+				font-size: 0.9rem;
+				letter-spacing: 1px;
+			}
+
+			.hero-content .social-icons .bi {
+				width: 40px;
+				height: 40px;
+				font-size: 1.5rem;
+				margin: 0 0.5rem;
+			}
+
+			.food-item img {
+				height: 200px;
+			}
+
+			.location-icon {
+				font-size: 2.5rem;
+			}
+		}
+
+		/* Extra small mobile devices - Max-width: 400px */
+		@media (max-width: 400px) {
+			.container-fluid {
+				padding-left: 0.3rem !important;
+				padding-right: 0.3rem !important;
+			}
+			
+			.navbar {
+				padding: 1.25rem 0 !important;
+			}
+			
+			.navbar-nav {
+				gap: 0.1rem !important;
+				flex-wrap: nowrap !important;
+				justify-content: space-evenly !important;
+				overflow: visible !important;
+			}
+			
+			.nav-link {
+				font-size: 0.7rem !important;
+				padding: 0.25rem 0.3rem !important;
+				margin: 0 !important;
+				letter-spacing: 0.3px !important;
+				white-space: nowrap;
+				flex: 1;
+				max-width: fit-content;
+			}
+			
+			.location-link-mobile {
+				font-size: 0.8rem !important;
+				padding: 0.4rem 0.5rem !important;
+				margin: 0 !important;
+				white-space: nowrap;
+				flex: none;
+				order: -1;
+			}
+			
+			.hero-section {
+				padding: 1rem 0.5rem !important;
+				min-height: 500px !important;
+			}
+			
+			.hero-content {
+				padding: 1rem 0.5rem !important;
+			}
+			
+			.hero-title {
+				font-size: 1.75rem !important;
+				line-height: 1.1 !important;
+				margin-bottom: 1rem !important;
+			}
+			
+			.hero-tagline {
+				font-size: 0.85rem !important;
+				letter-spacing: 1px !important;
+				margin-bottom: 1.5rem !important;
+			}
+			
+			.separator-dot {
+				font-size: 0.5rem !important;
+				margin: 0 0.2rem !important;
+			}
+			
+			.btn-primary {
+				padding: 0.75rem 1.25rem !important;
+				font-size: 0.8rem !important;
+				letter-spacing: 0.5px !important;
+			}
+			
+			.hero-logo {
+				max-width: 150px !important;
+				margin-bottom: 1rem !important;
+			}
+			
+			.section-title {
+				font-size: 1.5rem !important;
+				line-height: 1.2 !important;
+			}
+			
+			.welcome-section, .location-section {
+				padding: 3rem 0 !important;
+			}
+			
+			.menu-section {
+				padding: 3rem 0 !important;
+			}
+			
+			.menu-title {
+				font-size: 2rem !important;
+				margin-bottom: 2rem !important;
+			}
+			
+			.menu-tab {
+				padding: 0.4rem 0.6rem !important;
+				font-size: 0.7rem !important;
+				margin: 0.1rem !important;
+			}
+			
+			.hours-header {
+				font-size: 2.5rem !important;
+				margin-bottom: 1.5rem !important;
+			}
+			
+			.hours-day {
+				font-size: 1.5rem !important;
+				margin-bottom: 0.6rem !important;
+			}
+			
+			/* Hero section hours styling for very small screens */
+			.hero-info {
+				padding: 1rem 0.5rem !important;
+				margin-top: 1rem !important;
+			}
+			
+			.hero-info .hours-header {
+				font-size: 2rem !important;
+				margin-bottom: 1rem !important;
+				letter-spacing: 3px !important;
+			}
+			
+			.hero-info .hours-day {
+				font-size: 1.2rem !important;
+				margin-bottom: 0.4rem !important;
+				letter-spacing: 1px !important;
+				line-height: 1.3 !important;
+			}
+			
+			.hero-info .hours-list {
+				margin-bottom: 1.5rem !important;
+			}
+		}
+
+		/* Smooth scrolling for all elements */
+		* {
+			scroll-behavior: smooth;
+		}
+
+		/* Remove scroll animations on reduced motion */
+		@media (prefers-reduced-motion: reduce) {
+			*,
+			*::before,
+			*::after {
+				animation-duration: 0.01ms !important;
+				animation-iteration-count: 1 !important;
+				transition-duration: 0.01ms !important;
+			}
+		}
+	</style>
+  </head>
+  <body>
+	  <!-- Navigation -->
+	  <nav class="navbar navbar-expand-lg fixed-top">
+	    <div class="container-fluid px-3">
+	      <!-- Left side with location only -->
+	      <div class="navbar-left d-flex align-items-center">
+		<a class="nav-link location-link d-none d-lg-flex" href="https://www.google.com/maps/dir//Bryan's+Steak+House,+2515+TN-47,+White+Bluff,+TN+37187" target="_blank" rel="noopener noreferrer">
+		  <i class="bi bi-geo-alt-fill me-1"></i>Get Directions
+		</a>
+	      </div>
+	      
+	      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+		<span class="navbar-toggler-icon"></span>
+	      </button>
+
+	      <div class="collapse navbar-collapse" id="navbarNav">
+		<!-- Mobile navigation container -->
+		<ul class="navbar-nav w-100 d-lg-none">
+		  <!-- Mobile location link - positioned first (left) -->
+		  <li class="nav-item">
+		    <a class="nav-link location-link-mobile" href="https://www.google.com/maps/dir//Bryan's+Steak+House,+2515+TN-47,+White+Bluff,+TN+37187" target="_blank" rel="noopener noreferrer">
+		      <i class="bi bi-geo-alt-fill me-1"></i>Get Directions
+		    </a>
+		  </li>
+		  <!-- Main navigation items -->
+		  <li class="nav-item">
+		    <a class="nav-link" href="#home">Home</a>
+		  </li>
+		  <li class="nav-item">
+		    <a class="nav-link" href="#about">About</a>
+		  </li>
+		  <li class="nav-item">
+		    <a class="nav-link" href="#contact">Contact</a>
+		  </li>
+		  <li class="nav-item">
+		    <a class="nav-link" href="#menu">Menu</a>
+		  </li>
+		</ul>
+		<!-- Desktop navigation -->
+		<ul class="navbar-nav ms-auto d-none d-lg-flex">
+		  <li class="nav-item">
+		    <a class="nav-link" href="#home">Home</a>
+		  </li>
+		  <li class="nav-item">
+		    <a class="nav-link" href="#about">About</a>
+		  </li>
+		  <li class="nav-item">
+		    <a class="nav-link" href="#contact">Contact</a>
+		  </li>
+		  <li class="nav-item">
+		    <a class="nav-link" href="#menu">Menu</a>
+		  </li>
+		</ul>
+	      </div>
+	    </div>
+	  </nav>
+
+	<!-- Industrial Hero Section -->
+	<section id="home" class="hero-section">
+	  <div class="hero-content">
+	    <img src="assets/images/bryans-steak-house-rnbz4sph-logo.png" alt="Bryan's Steak House" class="hero-logo">
+	    
+	    <h1 class="hero-title">PREMIUM<br>STEAKS<br><span class="fire-text">GRILLED</span><br>TO PERFECTION</h1>
+	    
+	    <div class="hero-tagline">
+	      <span class="separator-dot">●</span> CRAFT <span class="separator-dot">●</span> FIRE <span class="separator-dot">●</span> FLAVOR <span class="separator-dot">●</span>
+	    </div>
+	    
+	    <a href="#menu" class="btn btn-primary hero-cta">
+	      <span class="cta-text">ORDER NOW</span>
+	      <span class="cta-arrow">▶</span>
+	    </a>
+	  </div>
+	  
+	</section>
+
+	<!-- Reviews Section -->
+	<section id="reviews" class="reviews-section">
+	  <div class="container">
+	    <h2 class="section-title">What Our Customers Say</h2>
+	    <div class="reviews-carousel">
+	      <div class="review-container">
+	        <div class="review-item active">
+	          <div class="review-stars">★★★★★</div>
+	          <div class="review-text">"Amazing steaks! The atmosphere is perfect and the service is outstanding. Highly recommend!"</div>
+	          <div class="review-author">- Sarah M.</div>
+	        </div>
+	        <div class="review-item">
+	          <div class="review-stars">★★★★★</div>
+	          <div class="review-text">"Best steakhouse in White Bluff! The ribeye was cooked to perfection. Will definitely be back!"</div>
+	          <div class="review-author">- Mike D.</div>
+	        </div>
+	        <div class="review-item">
+	          <div class="review-stars">★★★★★</div>
+	          <div class="review-text">"Incredible food and great prices. The staff made our anniversary dinner perfect!"</div>
+	          <div class="review-author">- Jennifer L.</div>
+	        </div>
+	        <div class="review-item">
+	          <div class="review-stars">★★★★★</div>
+	          <div class="review-text">"Top quality steaks with excellent service. This place exceeded all our expectations!"</div>
+	          <div class="review-author">- Robert K.</div>
+	        </div>
+	      </div>
+	      <div class="google-badge">
+	        <i class="bi bi-google"></i>
+	        <span>Google Reviews</span>
+	      </div>
+	    </div>
+	  </div>
+	</section>
+
+	<!-- Hours Section -->
+	<section id="hours" class="hours-section">
+	  <div class="container">
+	    <h2 class="section-title">Our Hours</h2>
+	    <div class="hours-container">
+	      <div class="hours-list">
+	        <div class="hours-day">MON: 11AM - 9:30PM</div>
+	        <div class="hours-day">TUE: 11AM - 9:30PM</div>
+	        <div class="hours-day">WED: 11AM - 9:30PM</div>
+	        <div class="hours-day">THU: 11AM - 9:30PM</div>
+	        <div class="hours-day">FRI: 11AM - 9:30PM</div>
+	        <div class="hours-day">SAT: 11AM - 9:30PM</div>
+	        <div class="hours-day">SUN: 11AM - 8PM</div>
+	      </div>
+	    </div>
+	  </div>
+	</section>
+
+	<!-- Industrial Menu Section -->
+	<section id="menu" class="menu-section">
+	  <div class="container">
+	    <h2 class="menu-title">Our Menu</h2>
+	    <div class="menu-divider"></div>
+	    
+	    <!-- Menu Navigation Tabs -->
+	    <div class="menu-tabs">
+	      <button class="menu-tab active" data-tab="starters">Starters</button>
+	      <button class="menu-tab" data-tab="salads">Salads</button>
+	      <button class="menu-tab" data-tab="steaks">Steaks</button>
+	      <button class="menu-tab" data-tab="sandwiches">Sandwiches</button>
+	      <button class="menu-tab" data-tab="favorites">Favorites</button>
+	      <button class="menu-tab" data-tab="pasta">Pasta</button>
+	      <button class="menu-tab" data-tab="kids">Kids</button>
+	      <button class="menu-tab" data-tab="sides">Sides</button>
+	      <button class="menu-tab" data-tab="drinks">Drinks</button>
+	      <button class="menu-tab" data-tab="desserts">Desserts</button>
+	    </div>
+
+	    <!-- Menu Content -->
+	    <div class="menu-content">
+	      
+	      <!-- Starters -->
+	      <div class="menu-category active" id="starters">
+	        <div class="menu-grid">
+	          <div class="menu-item-card">
+	            <div class="item-header">
+	              <h3>Nachos</h3>
+	              <span class="price">$11.99</span>
+	            </div>
+	            <p>Tortilla chips, homemade chili, cheese, lettuce, shredded cheese, tomatoes, jalapeños, side of sour cream</p>
+	          </div>
+	          <div class="menu-item-card">
+	            <div class="item-header">
+	              <h3>Pickle Chips</h3>
+	              <span class="price">$8.99</span>
+	            </div>
+	            <p>Battered and fried to order, side of ranch</p>
+	          </div>
+	          <div class="menu-item-card">
+	            <div class="item-header">
+	              <h3>Chili Cup</h3>
+	              <span class="price">$6.99</span>
+	            </div>
+	            <p>Homemade chili, topped with cheese and jalapeños, side of sour cream and crackers</p>
+	          </div>
+	          <div class="menu-item-card">
+	            <div class="item-header">
+	              <h3>Mozzarella Sticks</h3>
+	              <span class="price">$11.99</span>
+	            </div>
+	            <p>5 battered and fried to order, served with side of marinara</p>
+	          </div>
+	          <div class="menu-item-card">
+	            <div class="item-header">
+	              <h3>Tender Basket</h3>
+	              <span class="price">$11.99</span>
+	            </div>
+	            <p>3 fried or grilled, served with fries</p>
+	          </div>
+	          <div class="menu-item-card">
+	            <div class="item-header">
+	              <h3>Wings</h3>
+	              <span class="price">$11.99</span>
+	            </div>
+	            <p>Sauce choice with ranch or blue cheese</p>
+	          </div>
+	          <div class="menu-item-card">
+	            <div class="item-header">
+	              <h3>Southwest Egg Rolls</h3>
+	              <span class="price">$10.99</span>
+	            </div>
+	            <p>Seasoned chicken, corn, black beans and peppers wrapped in a crispy flour wrapper, side of chipotle ranch</p>
+	          </div>
+	          <div class="menu-item-card">
+	            <div class="item-header">
+	              <h3>Fried Mushrooms</h3>
+	              <span class="price">$8.99</span>
+	            </div>
+	            <p>Battered and fried to order with side of ranch</p>
+	          </div>
+	          <div class="menu-item-card">
+	            <div class="item-header">
+	              <h3>Potato Skins</h3>
+	              <span class="price">$8.99</span>
+	            </div>
+	            <p>Crispy potato topped with shredded cheese, bacon, chives, side of sour cream</p>
+	          </div>
+	          <div class="menu-item-card">
+	            <div class="item-header">
+	              <h3>Fried Onion Rings</h3>
+	              <span class="price">$8.99</span>
+	            </div>
+	            <p>Battered and fried to order, side of ranch</p>
+	          </div>
+	        </div>
+	      </div>
+
+	      <!-- Salads -->
+	      <div class="menu-category" id="salads">
+	        <div class="menu-grid">
+	          <div class="menu-item-card">
+	            <div class="item-header">
+	              <h3>Side Salad</h3>
+	              <span class="price">$4.99</span>
+	            </div>
+	            <p>Mixed greens, tomato, red onions, cucumber, shredded cheese</p>
+	          </div>
+	          <div class="menu-item-card">
+	            <div class="item-header">
+	              <h3>Cobb House Salad</h3>
+	              <span class="price">$7.99</span>
+	            </div>
+	            <p>Mixed greens, tomato, red onions, cucumber, bacon, egg, shredded cheese</p>
+	          </div>
+	          <div class="menu-item-card">
+	            <div class="item-header">
+	              <h3>Chef Salad</h3>
+	              <span class="price">$12.99</span>
+	            </div>
+	            <p>Mixed greens, diced ham, turkey, bacon, egg, tomato, cucumber, red onions, shredded cheese</p>
+	          </div>
+	        </div>
+	      </div>
+
+	      <!-- Steaks -->
+	      <div class="menu-category" id="steaks">
+	        <div class="section-note">Served with 2 sides</div>
+	        <div class="menu-grid">
+	          <div class="menu-item-card featured">
+	            <div class="item-header">
+	              <h3>Ribeye Steak</h3>
+	              <span class="price">$25.95</span>
+	            </div>
+	            <p>Fresh cut 12 oz ribeye steak, seasoned perfectly and cooked to order</p>
+	          </div>
+	          <div class="menu-item-card">
+	            <div class="item-header">
+	              <h3>T-Bone Steak (12 oz)</h3>
+	              <span class="price">$23.99</span>
+	            </div>
+	            <p>12 oz T-bone steak cooked to order</p>
+	          </div>
+	          <div class="menu-item-card">
+	            <div class="item-header">
+	              <h3>T-Bone Steak (16 oz)</h3>
+	              <span class="price">$33.99</span>
+	            </div>
+	            <p>16 oz T-bone steak cooked to order</p>
+	          </div>
+	          <div class="menu-item-card">
+	            <div class="item-header">
+	              <h3>New York Strip Steak</h3>
+	              <span class="price">$24.99</span>
+	            </div>
+	            <p>12 oz New York strip steak seasoned perfectly and cooked to order</p>
+	          </div>
+	          <div class="menu-item-card">
+	            <div class="item-header">
+	              <h3>Sirloin Steak</h3>
+	              <span class="price">$21.99</span>
+	            </div>
+	            <p>12 oz sirloin cooked to order</p>
+	          </div>
+	          <div class="menu-item-card">
+	            <div class="item-header">
+	              <h3>Hamburger Steak</h3>
+	              <span class="price">$15.99</span>
+	            </div>
+	            <p>12 oz hamburger meat pattied by hand and cooked to order, sautéed onions and mushrooms</p>
+	          </div>
+	          <div class="menu-item-card">
+	            <div class="item-header">
+	              <h3>Pork Chop Dinner</h3>
+	              <span class="price">$14.99</span>
+	            </div>
+	            <p>Pork chops seasoned, grilled or fried</p>
+	          </div>
+	        </div>
+	      </div>
+
+	      <!-- Sandwiches -->
+	      <div class="menu-category" id="sandwiches">
+	        <div class="section-note">Served with fries</div>
+	        <div class="menu-grid">
+	          <div class="menu-item-card">
+	            <div class="item-header">
+	              <h3>Big Burger</h3>
+	              <span class="price">$11.99</span>
+	            </div>
+	            <p>8 oz hand pattied beef, lettuce, tomato, onions and pickles on a brioche bun, cheese choice</p>
+	          </div>
+	          <div class="menu-item-card">
+	            <div class="item-header">
+	              <h3>Chicken Sandwich</h3>
+	              <span class="price">$11.99</span>
+	            </div>
+	            <p>Grilled or fried lettuce, tomato, onions and pickles on a brioche bun, cheese choice</p>
+	          </div>
+	          <div class="menu-item-card">
+	            <div class="item-header">
+	              <h3>French Dip</h3>
+	              <span class="price">$13.75</span>
+	            </div>
+	            <p>Sliced roast beef, provolone cheese on a toasted white hoagie</p>
+	          </div>
+	          <div class="menu-item-card">
+	            <div class="item-header">
+	              <h3>The Club House</h3>
+	              <span class="price">$13.50</span>
+	            </div>
+	            <p>Turkey, ham and bacon, layered with Swiss & provolone cheese, lettuce, tomato, between two slices of bread</p>
+	          </div>
+	          <div class="menu-item-card">
+	            <div class="item-header">
+	              <h3>Wrap</h3>
+	              <span class="price">$10.99</span>
+	            </div>
+	            <p>Spinach tortilla, lettuce, tomato, shredded cheese with choice of protein</p>
+	          </div>
+	        </div>
+	      </div>
+
+	      <!-- Favorites -->
+	      <div class="menu-category" id="favorites">
+	        <div class="section-note">Served with 2 sides</div>
+	        <div class="menu-grid">
+	          <div class="menu-item-card">
+	            <div class="item-header">
+	              <h3>Shrimp Basket</h3>
+	              <span class="price">$14.99</span>
+	            </div>
+	            <p>Fried or grilled jumbo shrimp, side of cocktail sauce</p>
+	          </div>
+	          <div class="menu-item-card">
+	            <div class="item-header">
+	              <h3>Biscuit Plate</h3>
+	              <span class="price">$12.99</span>
+	            </div>
+	            <p>4 homemade biscuits with choice of chicken or steak</p>
+	          </div>
+	          <div class="menu-item-card">
+	            <div class="item-header">
+	              <h3>Garlic Shrimp</h3>
+	              <span class="price">$16.99</span>
+	            </div>
+	            <p>Cooked with garlic butter, black peppers and onions</p>
+	          </div>
+	          <div class="menu-item-card featured">
+	            <div class="item-header">
+	              <h3>Lime Salmon</h3>
+	              <span class="price">$18.99</span>
+	            </div>
+	            <p>Fresh Atlantic salmon grilled with seasoning lime and black pepper</p>
+	          </div>
+	          <div class="menu-item-card">
+	            <div class="item-header">
+	              <h3>Meat & 2</h3>
+	              <span class="price">$10.75</span>
+	            </div>
+	            <p>One meat & 2 sides with roll or cornbread</p>
+	          </div>
+	          <div class="menu-item-card">
+	            <div class="item-header">
+	              <h3>Meat & 3</h3>
+	              <span class="price">$11.99</span>
+	            </div>
+	            <p>One meat & 3 sides with roll or cornbread</p>
+	          </div>
+	          <div class="menu-item-card">
+	            <div class="item-header">
+	              <h3>4 Veggies</h3>
+	              <span class="price">$11.00</span>
+	            </div>
+	            <p>4 vegetable sides with roll or cornbread</p>
+	          </div>
+	        </div>
+	      </div>
+
+	      <!-- Pasta -->
+	      <div class="menu-category" id="pasta">
+	        <div class="menu-grid">
+	          <div class="menu-item-card">
+	            <div class="item-header">
+	              <h3>Italian Spaghetti</h3>
+	              <span class="price">$13.99</span>
+	            </div>
+	            <p>Generous portion of pasta topped with homemade meat sauce, served with house salad</p>
+	          </div>
+	          <div class="menu-item-card">
+	            <div class="item-header">
+	              <h3>Italian Chicken Pasta</h3>
+	              <span class="price">$14.99</span>
+	            </div>
+	            <p>Grilled chicken cooked with bell peppers, onions, diced tomatoes, cooked in olive oil, served with house salad</p>
+	          </div>
+	          <div class="menu-item-card">
+	            <div class="item-header">
+	              <h3>Alfredo Pasta</h3>
+	              <span class="price">$7.99</span>
+	            </div>
+	            <p>Fettuccine pasta tossed in creamy alfredo sauce, garlic bread</p>
+	          </div>
+	        </div>
+	      </div>
+
+	      <!-- Kids Menu -->
+	      <div class="menu-category" id="kids">
+	        <div class="section-note">Served with fries and drink</div>
+	        <div class="menu-grid kids-grid">
+	          <div class="menu-item-card">
+	            <div class="item-header">
+	              <h3>Cheeseburger</h3>
+	              <span class="price">$6.99</span>
+	            </div>
+	          </div>
+	          <div class="menu-item-card">
+	            <div class="item-header">
+	              <h3>Corn Dog</h3>
+	              <span class="price">$6.99</span>
+	            </div>
+	          </div>
+	          <div class="menu-item-card">
+	            <div class="item-header">
+	              <h3>Tenders</h3>
+	              <span class="price">$6.99</span>
+	            </div>
+	          </div>
+	          <div class="menu-item-card">
+	            <div class="item-header">
+	              <h3>Grilled Cheese</h3>
+	              <span class="price">$6.99</span>
+	            </div>
+	          </div>
+	          <div class="menu-item-card">
+	            <div class="item-header">
+	              <h3>Mac N Cheese</h3>
+	              <span class="price">$6.99</span>
+	            </div>
+	          </div>
+	        </div>
+	      </div>
+
+	      <!-- Sides -->
+	      <div class="menu-category" id="sides">
+	        <div class="menu-grid sides-grid">
+	          <div class="menu-item-card compact">
+	            <div class="item-header">
+	              <h3>Baked Beans</h3>
+	              <span class="price">$2.99</span>
+	            </div>
+	          </div>
+	          <div class="menu-item-card compact">
+	            <div class="item-header">
+	              <h3>Coleslaw</h3>
+	              <span class="price">$2.99</span>
+	            </div>
+	          </div>
+	          <div class="menu-item-card compact">
+	            <div class="item-header">
+	              <h3>Fried Okra</h3>
+	              <span class="price">$2.99</span>
+	            </div>
+	          </div>
+	          <div class="menu-item-card compact">
+	            <div class="item-header">
+	              <h3>Fries</h3>
+	              <span class="price">$2.99</span>
+	            </div>
+	          </div>
+	          <div class="menu-item-card compact">
+	            <div class="item-header">
+	              <h3>Sweet Potato Fries</h3>
+	              <span class="price">$2.99</span>
+	            </div>
+	          </div>
+	          <div class="menu-item-card compact">
+	            <div class="item-header">
+	              <h3>Green Beans</h3>
+	              <span class="price">$2.99</span>
+	            </div>
+	          </div>
+	          <div class="menu-item-card compact">
+	            <div class="item-header">
+	              <h3>Mac N Cheese</h3>
+	              <span class="price">$2.99</span>
+	            </div>
+	          </div>
+	          <div class="menu-item-card compact">
+	            <div class="item-header">
+	              <h3>Mashed Potatoes</h3>
+	              <span class="price">$2.99</span>
+	            </div>
+	          </div>
+	          <div class="menu-item-card compact">
+	            <div class="item-header">
+	              <h3>Turnip Greens</h3>
+	              <span class="price">$2.99</span>
+	            </div>
+	          </div>
+	          <div class="menu-item-card compact">
+	            <div class="item-header">
+	              <h3>Rice Pilaf</h3>
+	              <span class="price">$2.99</span>
+	            </div>
+	          </div>
+	          <div class="menu-item-card compact">
+	            <div class="item-header">
+	              <h3>Steamed Broccoli</h3>
+	              <span class="price">$2.99</span>
+	            </div>
+	          </div>
+	          <div class="menu-item-card compact">
+	            <div class="item-header">
+	              <h3>Baked Potato</h3>
+	              <span class="price">$2.99</span>
+	            </div>
+	          </div>
+	          <div class="menu-item-card compact">
+	            <div class="item-header">
+	              <h3>Loaded Baked Potato</h3>
+	              <span class="price">$3.94</span>
+	            </div>
+	          </div>
+	        </div>
+	      </div>
+
+	      <!-- Drinks -->
+	      <div class="menu-category" id="drinks">
+	        <div class="menu-grid drinks-grid">
+	          <div class="menu-item-card compact">
+	            <div class="item-header">
+	              <h3>Coca Cola</h3>
+	              <span class="price">$2.85</span>
+	            </div>
+	          </div>
+	          <div class="menu-item-card compact">
+	            <div class="item-header">
+	              <h3>Sweet Tea</h3>
+	              <span class="price">$2.85</span>
+	            </div>
+	          </div>
+	          <div class="menu-item-card compact">
+	            <div class="item-header">
+	              <h3>Unsweet Tea</h3>
+	              <span class="price">$2.85</span>
+	            </div>
+	          </div>
+	          <div class="menu-item-card compact">
+	            <div class="item-header">
+	              <h3>Decaf Coffee</h3>
+	              <span class="price">$2.85</span>
+	            </div>
+	          </div>
+	          <div class="menu-item-card compact">
+	            <div class="item-header">
+	              <h3>Milk</h3>
+	              <span class="price">$2.85</span>
+	            </div>
+	          </div>
+	          <div class="menu-item-card compact">
+	            <div class="item-header">
+	              <h3>Chocolate Milk</h3>
+	              <span class="price">$2.85</span>
+	            </div>
+	          </div>
+	          <div class="menu-item-card compact">
+	            <div class="item-header">
+	              <h3>Orange Juice</h3>
+	              <span class="price">$2.85</span>
+	            </div>
+	          </div>
+	          <div class="menu-item-card compact">
+	            <div class="item-header">
+	              <h3>Blue Crush Lemonade</h3>
+	              <span class="price">$3.25</span>
+	            </div>
+	          </div>
+	          <div class="menu-item-card compact">
+	            <div class="item-header">
+	              <h3>Red Raspberry Lemonade</h3>
+	              <span class="price">$3.25</span>
+	            </div>
+	          </div>
+	          <div class="menu-item-card compact">
+	            <div class="item-header">
+	              <h3>Wild Strawberry Lemonade</h3>
+	              <span class="price">$3.25</span>
+	            </div>
+	          </div>
+	        </div>
+	      </div>
+
+	      <!-- Desserts -->
+	      <div class="menu-category" id="desserts">
+	        <div class="menu-grid">
+	          <div class="menu-item-card">
+	            <div class="item-header">
+	              <h3>Seasonal Cobbler</h3>
+	              <span class="price">$5.99</span>
+	            </div>
+	          </div>
+	          <div class="menu-item-card">
+	            <div class="item-header">
+	              <h3>Fudge Brownie</h3>
+	              <span class="price">$5.99</span>
+	            </div>
+	          </div>
+	          <div class="menu-item-card">
+	            <div class="item-header">
+	              <h3>Ice Cream</h3>
+	              <span class="price">$5.99</span>
+	            </div>
+	          </div>
+	        </div>
+	      </div>
+
+	    </div>
+	  </div>
+	</section>
+
+	<!-- About Section -->
+	<section id="about" class="welcome-section">
+	  <div class="container">
+	    <div class="row">
+	      <div class="col-lg-8 mx-auto text-center">
+		<h2 class="section-title">Welcome to Bryan's Steak House</h2>
+		<div class="section-divider"></div>
+		<p class="welcome-text">
+		  Experience the finest steaks and exceptional dining in the heart of White Bluff. 
+		  Our family-owned restaurant has been serving the community with pride, 
+		  offering premium cuts and Southern hospitality that keeps our guests coming back.
+		</p>
+	      </div>
+	    </div>
+	    
+	    <!-- Food Gallery -->
+	    <div class="food-gallery mt-5">
+	      <div class="row">
+		<div class="col-lg-8 col-md-7">
+		  <div class="food-item">
+		    <img src="assets/images/bryans-steak-house-hg62mncf-food1.jpg" alt="Signature steak preparation" class="img-fluid">
+		  </div>
+		</div>
+		<div class="col-lg-4 col-md-5">
+		  <div class="row">
+		    <div class="col-12 mb-3">
+		      <div class="food-item">
+			<img src="assets/images/bryans-steak-house-qmxzh3cj-food2.jpg" alt="Fresh side dishes" class="img-fluid">
+		      </div>
+		    </div>
+		    <div class="col-12">
+		      <div class="food-item">
+			<img src="assets/images/bryans-steak-house-t6vh8dc3-food3.jpg" alt="Gourmet entrees" class="img-fluid">
+		      </div>
+		    </div>
+		  </div>
+		</div>
+	      </div>
+	    </div>
+	  </div>
+	</section>
+
+	<!-- Location Section -->
+	<section id="location" class="location-section">
+	  <div class="container">
+	    <div class="row">
+	      <div class="col-lg-8 mx-auto text-center">
+		<h2 class="section-title">Visit Our Restaurant</h2>
+		<div class="section-divider"></div>
+	      </div>
+	    </div>
+	    
+	    <div class="row justify-content-center mt-5">
+	      <div class="col-lg-6 col-md-8">
+		<div class="location-card">
+		  <div class="location-icon">
+		    <i class="bi bi-geo-alt-fill"></i>
+		  </div>
+		  <h4 class="mb-3">White Bluff Location</h4>
+		  <p class="mb-2"><strong>2515 TN-47</strong></p>
+		  <p class="mb-3">White Bluff, TN 37187</p>
+		  <a href="tel:16157971042" class="btn btn-outline-primary">
+		    <i class="bi bi-telephone-fill me-2"></i>(615) 797-1042
+		  </a>
+		</div>
+	      </div>
+	    </div>
+	  </div>
+	</section>
+
+	<!-- Footer -->
+	<footer id="contact" class="footer">
+	  <div class="container">
+	    <div class="row">
+	      <div class="col-lg-3 col-md-6 mb-4">
+		<img src="assets/images/bryans-steak-house-rnbz4sph-logo.png" alt="Bryan's Steak House" class="mb-3" style="max-height: 60px;">
+		<p class="mb-3">Experience exceptional dining with premium steaks and Southern hospitality in White Bluff.</p>
+		<a href="#menu" class="btn btn-outline-light">View Menu</a>
+	      </div>
+	      
+	      <div class="col-lg-3 col-md-6 mb-4">
+		<h5>Business Hours</h5>
+		<ul class="list-unstyled">
+		  <li class="mb-1"><strong>Sunday:</strong> 11:00 AM - 8:00 PM</li>
+		  <li class="mb-1"><strong>Monday - Saturday:</strong> 11:00 AM - 9:30 PM</li>
+		</ul>
+	      </div>
+	      
+	      <div class="col-lg-3 col-md-6 mb-4">
+		<h5>Contact Info</h5>
+		<ul class="list-unstyled">
+		  <li class="mb-2">
+		    <i class="bi bi-geo-alt-fill me-2"></i>
+		    2515 TN-47<br>
+		    <span class="ms-4">White Bluff, TN 37187</span>
+		  </li>
+		  <li class="mb-2">
+		    <i class="bi bi-telephone-fill me-2"></i>
+		    <a href="tel:16157971042">(615) 797-1042</a>
+		  </li>
+		</ul>
+	      </div>
+	      
+	      <div class="col-lg-3 col-md-6 mb-4">
+		<h5>Follow Us</h5>
+		<div class="social-icons">
+		  <i class="bi bi-facebook me-3"></i>
+		  <i class="bi bi-twitter me-3"></i>
+		  <i class="bi bi-instagram"></i>
+		</div>
+	      </div>
+	    </div>
+	    
+	    <div class="copyright">
+	      <p>&copy; 2024 Bryan's Steak House. All rights reserved.</p>
+	    </div>
+	  </div>
+	</footer>
+  
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  
+  <!-- Enhanced JavaScript with Advanced Animations -->
+  <script>
+    // Enhanced smooth scrolling for navigation links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          const offsetTop = target.offsetTop - 80;
+          window.scrollTo({
+            top: offsetTop,
+            behavior: 'smooth'
+          });
+        }
+      });
+    });
+    
+    // Enhanced navbar scroll effects
+    let lastScrollY = window.scrollY;
+    window.addEventListener('scroll', function() {
+      const navbar = document.querySelector('.navbar');
+      const currentScrollY = window.scrollY;
+      
+      // Add/remove scrolled class
+      if (currentScrollY > 50) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
+      
+      // Hide/show navbar on scroll direction
+      if (currentScrollY > lastScrollY && currentScrollY > 100) {
+        navbar.style.transform = 'translateY(-100%)';
+      } else {
+        navbar.style.transform = 'translateY(0)';
+      }
+      
+      lastScrollY = currentScrollY;
+    });
+    
+    // Scroll animation observer
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+    
+    const observer = new IntersectionObserver(function(entries) {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in-view');
+        }
+      });
+    }, observerOptions);
+    
+    // Observe elements for scroll animations
+    document.addEventListener('DOMContentLoaded', function() {
+      const animateElements = document.querySelectorAll('.section-title, .welcome-text, .food-item, .location-card');
+      animateElements.forEach(el => {
+        el.classList.add('scroll-animate');
+        observer.observe(el);
+      });
+    });
+    
+    // Parallax effect for hero section
+    window.addEventListener('scroll', function() {
+      const scrolled = window.pageYOffset;
+      const parallax = document.querySelector('.hero-section');
+      const speed = scrolled * 0.5;
+      
+      if (parallax) {
+        parallax.style.backgroundPositionY = speed + 'px';
+      }
+    });
+    
+    // Enhanced button hover effects
+    document.querySelectorAll('.btn-primary').forEach(button => {
+      button.addEventListener('mouseenter', function() {
+        this.style.transform = 'translateY(-4px) scale(1.02)';
+      });
+      
+      button.addEventListener('mouseleave', function() {
+        this.style.transform = 'translateY(0) scale(1)';
+      });
+    });
+    
+    // Add loading animation
+    window.addEventListener('load', function() {
+      document.body.style.opacity = '0';
+      document.body.style.transition = 'opacity 0.5s ease';
+      
+      setTimeout(() => {
+        document.body.style.opacity = '1';
+      }, 100);
+    });
+    
+    // Mobile touch effects
+    document.querySelectorAll('.food-item, .location-card').forEach(card => {
+      card.addEventListener('touchstart', function() {
+        this.style.transform = 'scale(0.98)';
+      });
+      
+      card.addEventListener('touchend', function() {
+        this.style.transform = 'scale(1)';
+      });
+    });
+    
+    // Google Reviews Carousel Animation
+    const reviewItems = document.querySelectorAll('.review-item');
+    let currentReview = 0;
+    
+    function showNextReview() {
+      // Remove active class from current review
+      reviewItems[currentReview].classList.remove('active');
+      
+      // Move to next review (loop back to 0 if at end)
+      currentReview = (currentReview + 1) % reviewItems.length;
+      
+      // Add active class to new review
+      reviewItems[currentReview].classList.add('active');
+    }
+    
+    // Start the carousel after page loads
+    setTimeout(() => {
+      setInterval(showNextReview, 4000); // Change review every 4 seconds
+    }, 2000); // Wait 2 seconds before starting carousel
+    
+    // Industrial Menu Tab Functionality
+    const menuTabs = document.querySelectorAll('.menu-tab');
+    const menuCategories = document.querySelectorAll('.menu-category');
+    
+    function switchMenuTab(targetTab) {
+      // Remove active class from all tabs and categories
+      menuTabs.forEach(tab => tab.classList.remove('active'));
+      menuCategories.forEach(category => category.classList.remove('active'));
+      
+      // Add active class to clicked tab
+      targetTab.classList.add('active');
+      
+      // Show corresponding category
+      const tabId = targetTab.getAttribute('data-tab');
+      const targetCategory = document.getElementById(tabId);
+      if (targetCategory) {
+        targetCategory.classList.add('active');
+      }
+    }
+    
+    // Add click event listeners to menu tabs
+    menuTabs.forEach(tab => {
+      tab.addEventListener('click', function() {
+        switchMenuTab(this);
+      });
+      
+      // Add keyboard support for accessibility
+      tab.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          switchMenuTab(this);
+        }
+      });
+    });
+  </script>
+  
+  </body>
+</html>
